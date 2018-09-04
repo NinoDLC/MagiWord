@@ -2,7 +2,7 @@
 Dans cet exercice, vous allez devoir créer un jeu de combat épique entre Guerrier, Rôdeur et Mage !
 Ce jeu est prévu pour 2 joueurs et fonctionne dans le terminal.
 
-##Comment se déroule le jeu :
+ ## Comment se déroule le jeu :
 * Le jeu commence par proposer au joueur 1 de choisir entre Guerrier, Rôdeur ou Mage.
 * Il doit ensuite choisir le niveau, la force, l’agilité et enfin l’intelligence de son personnage.
 * C’est ensuite au tour du second joueur de choisir la classe et les caractéristiques de son personnage.
@@ -10,7 +10,7 @@ Ce jeu est prévu pour 2 joueurs et fonctionne dans le terminal.
 * Chaque joueur joue tour à tour et choisit entre son Attaque Basique ou son Attaque spéciale.
 * Quand un joueur n’a plus de point de vie, la partie est terminée et l’autre joueur l’emporte.
 
-##Les caractéristiques :
+## Les caractéristiques :
 Chaque personnage possède **5 caractéristiques** :
 
 * Niveau : choisi par le joueur (min 1, max 100)
@@ -23,7 +23,7 @@ Chaque personnage possède **5 caractéristiques** :
 
 Par exemple, un mage niveau 18 ne peut pas avoir 5 de force et 14 d’intelligence : le total fait 19 et non 18.
 
-##Les sorts :
+## Les sorts :
 Chaque joueur possède **2 sorts** :
 
 Une attaque basique qui cause des dommages à l’adversaire.
