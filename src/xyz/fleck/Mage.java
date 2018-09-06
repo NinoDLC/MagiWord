@@ -13,8 +13,8 @@ public class Mage extends Joueur {
     protected void jouer(int choix) {
         switch (choix) {
             case 1:
-                adversaire.enleverVie(this.intelligence);
-                System.out.println(nom + " utilise boule de feu et inflige " + this.intelligence + " de dégâts");
+                adversaire.enleverVie(intelligence);
+                System.out.println(nom + " utilise boule de feu et inflige " + intelligence + " de dégâts");
                 break;
             case 2:
                 //Soin
@@ -34,6 +34,6 @@ public class Mage extends Joueur {
     }
 
     public String toString() {
-        return "Abracadabra ! Je suis le Mage " + nom + ", niveau " + niveau + ", je possède " + vie + " de vitalité, " + force + " de force, " + agilite + " d'agilité et " + force + " de force.";
+        return "Abracadabra ! Je suis le Mage " + nom + ", niveau " + niveau + ", je possède " + vie + " de vitalité, " + force + " de force, " + agilite + " d'agilité et " + intelligence + " d'intelligence.";
     }
 }

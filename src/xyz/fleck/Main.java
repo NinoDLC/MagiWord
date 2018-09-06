@@ -1,5 +1,6 @@
 package xyz.fleck;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -17,10 +18,24 @@ public class Main {
     private static Joueur creerJoueur(int numJoueur) {
         Scanner sc = new Scanner(System.in);
         Joueur j;
-        int choix;
-        System.out.println("Création du personnage du Joueur " + numJoueur);
-        System.out.println("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)");
-        choix = sc.nextInt();
+        int choix = 0;
+        boolean choixCorrect;
+        do {
+            System.out.println("Création du personnage du Joueur " + numJoueur);
+            System.out.println("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)");
+            try {
+                choixCorrect = true;
+                choix = sc.nextInt();
+                if (!(choix > 0 && choix < 4)) {
+                    System.out.println("Entrez une valeur correcte !");
+                    choixCorrect = false;
+                }
+            } catch (InputMismatchException e) {
+                sc.next();
+                choixCorrect = false;
+                System.out.println("Entrez une valeur correcte !");
+            }
+        } while (!choixCorrect);
         switch (choix) {
             case 1:
                 j = new Guerrier(numJoueur);
