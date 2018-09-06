@@ -4,16 +4,14 @@ import java.util.Scanner;
 
 public abstract class Joueur {
 
-    private String nom, classe;
-    private int niveau, vie, force, agilite, intelligence;
+    protected String nom;
+    protected int niveau, vie, force, agilite, intelligence;
     private Joueur adversaire;
 
 
-    Joueur(int numJoueur, String nomClasse) {
+    Joueur(int numJoueur) {
         nom = "Joueur " + numJoueur;
-        classe = nomClasse;
         Scanner sc = new Scanner(System.in);
-        int choix = 0;
         System.out.println("Niveau du personnage ?");
         niveau = sc.nextInt();
         System.out.println("Force du personnage ?");
@@ -46,7 +44,5 @@ public abstract class Joueur {
         this.adversaire = adversaire;
     }
 
-    public String toString() {
-        return "Je suis le " + this.classe + " " + nom;
-    }
+    public abstract String toString();
 }
