@@ -34,8 +34,7 @@ public abstract class Joueur {
     }
 
     public void activeJoueur() {
-        Scanner sc = new Scanner(System.in);
-        int choix = 0;
+        int choix;
         if (vie > 0) {
             do {
                 choix = demande(nom + " (" + vie + " vitalité), veuillez choisir votre action (1 : attaque basique, 2 : attaque spéciale)");
