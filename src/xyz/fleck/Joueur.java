@@ -1,5 +1,6 @@
 package xyz.fleck;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public abstract class Joueur {
@@ -20,15 +21,10 @@ public abstract class Joueur {
     }
 
     private boolean setCaracteristiques() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Niveau du personnage ?");
-        niveau = sc.nextInt();
-        System.out.println("Force du personnage ?");
-        force = sc.nextInt();
-        System.out.println("Agilité du personnage ?");
-        agilite = sc.nextInt();
-        System.out.println("Intelligence du personnage ?");
-        intelligence = sc.nextInt();
+        niveau = demande("Niveau du personnage ?");
+        force = demande("Force du personnage ?");
+        agilite = demande("Agilité du personnage ?");
+        intelligence = demande("Intelligence du personnage ?");
         if (force + agilite + intelligence == niveau) {
             return true;
         } else {
@@ -39,10 +35,13 @@ public abstract class Joueur {
 
     public void activeJoueur() {
         Scanner sc = new Scanner(System.in);
-        int choix;
+        int choix = 0;
         if (vie > 0) {
-            System.out.println(nom + " (" + vie + " vitalité), veuillez choisir votre action (1 : attaque basique, 2 : attaque spéciale)");
-            choix = sc.nextInt();
+            do {
+                choix = demande(nom + " (" + vie + " vitalité), veuillez choisir votre action (1 : attaque basique, 2 : attaque spéciale)");
+                if (choix != 1 && choix != 2) System.out.println("Entrez une valeur correcte !");
+            } while (choix != 1 && choix != 2);
+
             this.jouer(choix);
         } else {
             System.out.println("Le " + nom + " à perdu !");
@@ -57,6 +56,24 @@ public abstract class Joueur {
 
     public void setAdversaire(Joueur adversaire) {
         this.adversaire = adversaire;
+    }
+
+    private int demande(String str) {
+        int choix = 0;
+        boolean choixCorrect;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println(str);
+            try {
+                choixCorrect = true;
+                choix = sc.nextInt();
+            } catch (InputMismatchException e) {
+                sc.next();
+                choixCorrect = false;
+                System.out.println("Entrez une valeur correcte !");
+            }
+        } while (!choixCorrect);
+        return choix;
     }
 
     public abstract String toString();
