@@ -3,6 +3,9 @@ package xyz.fleck;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Main classe du jeu
+ */
 public class Main {
 
     public static void main(String[] args) {
@@ -15,6 +18,9 @@ public class Main {
         joueur1.activeJoueur();
     }
 
+    /**
+     * 
+     */
     private static Joueur creerJoueur(int numJoueur) {
         Scanner sc = new Scanner(System.in);
         Joueur j;
