@@ -11,10 +11,20 @@ public class Rodeur extends Joueur {
     /**
      * Constructeur du joueur Rôdeur
      *
-     * @param numJoueur numéro du joueur
+     * @param numJoueur
+     *          numéro du joueur
+     * @param force
+     *          force du joueur
+     * @param agilite
+     *          agilité du joueur
+     * @param intelligence
+     *          intelligence du joueur
      */
-    public Rodeur(int numJoueur) {
-        super(numJoueur);
+    public Rodeur(int numJoueur, int force, int agilite, int intelligence) {
+        super(numJoueur, force, agilite, intelligence);
+        type = "Rôdeur";
+        cri = "Chuuut";
+        System.out.println(this.toString());
     }
 
     /**
@@ -43,13 +53,5 @@ public class Rodeur extends Joueur {
                 break;
         }
         this.adversaire.activeJoueur();
-    }
-
-    /**
-     * Présentation du joueur Rôdeur
-     * @return Phrase de présentation du joueur Rôdeur (sous forme de String)
-     */
-    public String toString() {
-        return "Chuuuuut ! Je suis le Rôdeur, " + nom + ", niveau " + niveau + ", je possède " + vie + " de vitalité, " + force + " de force, " + agilite + " d'agilité et " + intelligence + " d'intelligence.";
     }
 }

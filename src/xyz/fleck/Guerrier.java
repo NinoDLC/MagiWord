@@ -11,10 +11,20 @@ public class Guerrier extends Joueur {
     /**
      * Constructeur du joueur Guerrier
      *
-     * @param numJoueur numéro du joueur
+     * @param numJoueur
+     *          numéro du joueur
+     * @param force
+     *          force du joueur
+     * @param agilite
+     *          agilité du joueur
+     * @param intelligence
+     *          intelligence du joueur
      */
-    public Guerrier(int numJoueur) {
-        super(numJoueur);
+    protected Guerrier(int numJoueur, int force, int agilite, int intelligence) {
+        super(numJoueur, force, agilite, intelligence);
+        type = "Guerrier";
+        cri = "Wouarggg";
+        System.out.println(this.toString());
     }
 
     /**
@@ -47,13 +57,5 @@ public class Guerrier extends Joueur {
         } else {
             System.out.println("Le " + nom + " à perdu !");
         }
-    }
-
-    /**
-     * Présentation du joueur Guerrier
-     * @return Phrase de présentation du joueur Guerrier (sous forme de String)
-     */
-    public String toString() {
-        return "Waourg ! Je suis le Guerrier " + nom + ", niveau " + niveau + ", je possède " + vie + " de vitalité, " + force + " de force, " + agilite + " d'agilité et " + intelligence + " d'intelligence.";
     }
 }

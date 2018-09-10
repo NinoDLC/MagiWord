@@ -21,6 +21,7 @@ public class Main {
         joueur1.activeJoueur();//début du jeu
     }
 
+
     /**
      * Retourne un joueur en le créant grace aux caractéristiques rentrés au clavier
      * 
@@ -29,41 +30,79 @@ public class Main {
      * @return Joueur créé grace au caractéristiques données au clavier
      */
     private static Joueur creerJoueur(int numJoueur) {
-        Scanner sc = new Scanner(System.in);
         Joueur j;
-        int choix = 0;
-        boolean choixCorrect;
+        int type, niveau, force, agilite, intelligence;
+        System.out.println("Création du personnage du Joueur " + numJoueur);
+        type = demande("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)", 1, 3);
         do {
-            System.out.println("Création du personnage du Joueur " + numJoueur);
-            System.out.println("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)");
-            try {
-                choixCorrect = true;
-                choix = sc.nextInt();
-                if (!(choix > 0 && choix < 4)) {
-                    System.out.println("Entrez une valeur correcte !");
-                    choixCorrect = false;
-                }
-            } catch (InputMismatchException e) {//capture les erreurs de saisie (lettre à la place de nombres)
-                sc.next();
-                choixCorrect = false;
-                System.out.println("Entrez une valeur correcte !");
+            niveau = demande("Niveau du personnage ?", 1);
+            force = demande("Force du personnage ?", 0);
+            agilite = demande("Agilité du personnage ?", 0);
+            intelligence = demande("Intelligence du personnage ?", 0);
+            if (force + agilite + intelligence != niveau) {
+                System.out.println("Attention le total force + agilité + intelligence doit être égal au niveau du joueur.");
             }
-        } while (!choixCorrect); // pose la question jusqu'à ce que le choix entré soit correct
-        switch (choix) {
+        } while (force + agilite + intelligence != niveau);
+        switch (type) {
             case 1:
-                j = new Guerrier(numJoueur);
+                j = new Guerrier(numJoueur, force, agilite, intelligence);
                 break;
             case 2:
-                j = new Rodeur(numJoueur);
+                j = new Rodeur(numJoueur, force, agilite, intelligence);
                 break;
             case 3:
-                j = new Mage(numJoueur);
+                j = new Mage(numJoueur, force, agilite, intelligence);
                 break;
             default:
-                j = new Mage(numJoueur);
+                j = new Mage(numJoueur, force, agilite, intelligence);
                 break;
         }
         return j;
     }
 
+
+    /**
+     * Effectue une demande et retourne la réponse numérique
+     *
+     * @param str la demande à faire
+     * @param min valeur minimale du choix
+     * @return le choix fait par l'utilisateur
+     */
+    public static int demande(String str, int min) {
+        int choix;
+        boolean choixCorrect;
+        Scanner sc = new Scanner(System.in);
+        do {
+            choix = 0;
+            System.out.println(str);
+            try {
+                choixCorrect = true;
+                choix = sc.nextInt();
+            } catch (InputMismatchException e) {
+                sc.next();
+                choixCorrect = false;
+            }
+            if (choixCorrect) {
+                if (!(choix >= min)) choixCorrect = false;
+            }
+        } while (!choixCorrect);
+        return choix;
+    }
+
+
+    /**
+     * Effectue une demande et retourne la réponse
+     *
+     * @param str la demande à faire
+     * @param min valeur minimale du choix
+     * @param max valeur maximale du choix
+     * @return le choix fait par l'utilisateur
+     */
+    public static int demande(String str, int min, int max) {
+        int choix;
+        do {
+            choix = demande(str, min);
+        } while (choix > max);
+        return choix;
+    }
 }
