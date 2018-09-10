@@ -3,6 +3,13 @@ package xyz.fleck;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+/**
+ * classe Joueur
+ * 
+ * @author flkoliv
+ * @version 1.0
+ */
 public abstract class Joueur {
 
     protected String nom;
