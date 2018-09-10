@@ -1,5 +1,11 @@
 package xyz.fleck;
 
+/**
+ * classe Mage
+ * 
+ * @author flkoliv
+ * @version 1.0
+ */
 public class Mage extends Joueur {
 
     private int vieMax;
