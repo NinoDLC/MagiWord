@@ -80,9 +80,9 @@ public abstract class Joueur {
      * En fonction du choix, effectue les actions propres à la classe du joueur
      * @param choix
      *      choix de l'action
-     * @see Mage#jouer()
-     * @see Guerrier#jouer()
-     * @see Rodeur#jouer()
+     * @see Mage#jouer(int)
+     * @see Guerrier#jouer(int)
+     * @see Rodeur#jouer(int)
      */
     protected abstract void jouer(int choix);
 
