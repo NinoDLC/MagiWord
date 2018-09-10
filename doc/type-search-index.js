@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"xyz.fleck","l":"Guerrier"},{"p":"xyz.fleck","l":"Joueur"},{"p":"xyz.fleck","l":"Mage"},{"p":"xyz.fleck","l":"Main"},{"p":"xyz.fleck","l":"Rodeur"}]
