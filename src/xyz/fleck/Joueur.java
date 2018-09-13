@@ -69,6 +69,7 @@ public abstract class Joueur {
      * @see Mage#jouer(int)
      * @see Guerrier#jouer(int)
      * @see Rodeur#jouer(int)
+     * @return résultat de l'attaque
      */
     protected abstract String jouer(int choix);
 
