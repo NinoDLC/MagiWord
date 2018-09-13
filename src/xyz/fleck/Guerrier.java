@@ -24,7 +24,6 @@ public class Guerrier extends Joueur {
         super(numJoueur, force, agilite, intelligence);
         type = "Guerrier";
         cri = "Wouarggg";
-        System.out.println(this.toString());
     }
 
     /**
@@ -36,26 +35,29 @@ public class Guerrier extends Joueur {
      * @see Mage#jouer(int)
      * @see Joueur#jouer(int)
      * @see Rodeur#jouer(int)
+     * @return phrase de l'action
      */
     @Override
-    protected void jouer(int choix) {
+    protected String jouer(int choix) {
+        String phrase = "";
         switch (choix) {
             case 1:
                 adversaire.enleverVie(force);
-                System.out.println(nom + " utilise Coup d'épée et inflige " + force + " de dégâts");
+                phrase = phrase + nom + " utilise Coup d'épée et inflige " + force + " de dégâts";
                 break;
             case 2:
                 adversaire.enleverVie((force * 2));
                 vie = vie - force / 2;
-                System.out.println(nom + " utilise Coup de rage, inflige " + (force * 2) + " de dégâts et perd " + (force / 2) + " de vitalité");
+                phrase = phrase + nom + " utilise Coup de rage, inflige " + (force * 2) + " de dégâts et perd " + (force / 2) + " de vitalité";
                 break;
             default:
                 break;
         }
         if (vie > 0) {
-            this.adversaire.activeJoueur();
+            return phrase;
         } else {
-            System.out.println("Le " + nom + " à perdu !");
+            return "Le " + nom + " n'a plus de vie, il a perdu !";
         }
+
     }
 }

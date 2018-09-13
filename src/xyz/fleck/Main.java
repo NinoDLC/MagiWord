@@ -14,8 +14,10 @@ public class Main {
     public static void main(String[] args) {
         int numJoueur = 1;
         Joueur joueur1 = creerJoueur(numJoueur);// création du premier joueur
+        System.out.println(joueur1.toString());
         numJoueur++;
         Joueur joueur2 = creerJoueur(numJoueur);//création du second joueur
+        System.out.println(joueur2.toString());
         joueur1.setAdversaire(joueur2);
         joueur2.setAdversaire(joueur1);
         joueur1.activeJoueur();//début du jeu

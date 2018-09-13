@@ -26,7 +26,6 @@ public class Mage extends Joueur {
         vieMax = vie;
         type = "Mage";
         cri = "Abracadabraaa";
-        System.out.println(this.toString());
     }
 
     /**
@@ -37,28 +36,30 @@ public class Mage extends Joueur {
      * @see Rodeur#jouer(int)
      * @see Joueur#jouer(int)
      * @see Guerrier#jouer(int)
+     * @return phrase de l'action
      */
     @Override
-    protected void jouer(int choix) {
+    protected String jouer(int choix) {
+        String phrase = "";
         switch (choix) {
             case 1:
                 adversaire.enleverVie(intelligence);
-                System.out.println(nom + " utilise boule de feu et inflige " + intelligence + " de dégâts");
+                phrase = phrase + nom + " utilise boule de feu et inflige " + intelligence + " de dégâts";
                 break;
             case 2:
                 //Soin
-                System.out.print(nom + " utilise Soin et gagne ");
+                phrase = phrase + nom + " utilise Soin et gagne ";
                 if ((intelligence * 2) + vie > vieMax) {
-                    System.out.println((vieMax - vie) + " de vitalité");
+                    phrase = phrase + (vieMax - vie) + " de vitalité";
                     vie = vieMax;
                 } else {
-                    System.out.println((intelligence * 2) + " de vitalité");
+                    phrase = phrase + (intelligence * 2) + " de vitalité";
                     vie = vie + (intelligence * 2);
                 }
                 break;
             default:
                 break;
         }
-        this.adversaire.activeJoueur();
+        return phrase;
     }
 }

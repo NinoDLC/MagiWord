@@ -44,7 +44,9 @@ public abstract class Joueur {
                 if (choix != 1 && choix != 2) System.out.println("Entrez une valeur correcte !");
             } while (choix != 1 && choix != 2);
 
-            this.jouer(choix);
+            System.out.println(this.jouer(choix));
+            if (vie <= 0) return;
+            this.adversaire.activeJoueur();
         } else {
             System.out.println("Le " + nom + " à perdu !");
         }
@@ -68,7 +70,7 @@ public abstract class Joueur {
      * @see Guerrier#jouer(int)
      * @see Rodeur#jouer(int)
      */
-    protected abstract void jouer(int choix);
+    protected abstract String jouer(int choix);
 
     /**
      * désigne l'adversaire du joueur

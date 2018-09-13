@@ -24,7 +24,6 @@ public class Rodeur extends Joueur {
         super(numJoueur, force, agilite, intelligence);
         type = "Rôdeur";
         cri = "Chuuut";
-        System.out.println(this.toString());
     }
 
     /**
@@ -36,22 +35,24 @@ public class Rodeur extends Joueur {
      * @see Mage#jouer(int)
      * @see Joueur#jouer(int)
      * @see Guerrier#jouer(int)
+     * @return phrase de l'action
      */
     @Override
-    protected void jouer(int choix) {
+    protected String jouer(int choix) {
+        String phrase = "";
         switch (choix) {
             case 1:
                 adversaire.enleverVie(agilite);
-                System.out.println(nom + " utilise Tir à l'Arc et inflige " + agilite + " de dégâts");
+                phrase = phrase + nom + " utilise Tir à l'Arc et inflige " + agilite + " de dégâts";
                 break;
             case 2:
                 agilite = agilite + (niveau / 2);
-                System.out.println(nom + " utilise Concentration et gagne " + (niveau / 2) + " d'agilité");
+                phrase = phrase + nom + " utilise Concentration et gagne " + (niveau / 2) + " d'agilité";
 
                 break;
             default:
                 break;
         }
-        this.adversaire.activeJoueur();
+        return phrase;
     }
 }
