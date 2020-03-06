@@ -1,3 +1,5 @@
+![Java CI with Maven](https://github.com/flkoliv/MagiWord/workflows/Java%20CI%20with%20Maven/badge.svg?branch=master)
+
 # MagiWord ReadMe
 Dans cet exercice, vous allez devoir créer un jeu de combat épique entre Guerrier, Rôdeur et Mage !
 Ce jeu est prévu pour 2 joueurs et fonctionne dans le terminal.
