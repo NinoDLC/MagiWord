@@ -94,7 +94,7 @@ public class Main {
 
     /**
      * Effectue une demande et retourne la réponse
-     *
+     * 
      * @param str la demande à faire
      * @param min valeur minimale du choix
      * @param max valeur maximale du choix
